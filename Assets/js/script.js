@@ -162,6 +162,9 @@ console.log("number of choosen criteria are=  "+strengthCount)
             text.style.display="block";
             text.textContent="your password is too weak";
             text.classList.add("tooweak");
+        }else{
+          tooweak.classList.remove("active");   
+          text.classList.remove("tooweak");          
         }
         if(strengthCount==2){
             weak.classList.add("active");
