@@ -2,68 +2,75 @@
 var generateBtn = document.querySelector("#generate");
 var passwordText = document.querySelector("#password");
 var criteriaContentList = document.querySelector(".mycriterialist");
-var criteriaUL = document.getElementById("mycriteriaUL");
 var liPasswordLength = document.getElementById("password-length");
 var liLowerCase = document.getElementById("Lower-Case");
 var liUpperCase = document.getElementById("Upper-Case");
 var liCharaters = document.getElementById("Charaters");
 var liNumeric = document.getElementById("Numeric");
-
+var passwordLength;
 var crtiteriaList={
       UPPERCASE_RE:"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
       LOWERCASE_RE:"abcdefghijklmnopqrstuvwxyz",
       NUMBER_RE:"0123456789",
       SPECIAL_CHAR_RE:"!@#$%^&*?_~-()",
-      }
+      } 
+    
+var hasUpperLetter=false;
+var hasLowerLetter=false;
+var hasNumbers=false;
+var hasSpecialLetters=false;
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
+ generateBtn.addEventListener("click", writePassword);
 // Write password to the #password input
 function writePassword() {
-      //____________________________________ Password criteria_______________________________________
-      var hasUpperLetter=false;
-      var hasLowerLetter=false;
-      var hasNumbers=false;
-      var hasSpecialLetters=false;
-      
-    var password = generatePassword(
-                    hasLowerLetter,
-                    hasUpperLetter,
-                    hasNumbers,
-                    hasSpecialLetters);
+  passwordText.value = "I will generate your secure password";
+  // criteriaUL.style.display="none";
+  liPasswordLength.style.display="none";
+  liUpperCase.style.display="none";
+  liLowerCase.style.display="none";
+  liNumeric.style.display="none";
+  liCharaters.style.display="none";
+    choose_criteria()  //___ Password criteria____
+
+    var password = generatePassword();
+
+
     passwordText.value = password;
 }
 
-//_______________________ Creat the password and asking for the criteria_______________________
+// _______________________________using the prompt function to ask for the criteria__________________________
+function choose_criteria(){
+  do{ // this loop will continue until the criteria for the password length is achived
+    passwordLength= +(prompt("Password length:\n     +It should be at least 8 characters and no more than 128 characters"));
+  } while(passwordLength<8 ||passwordLength>128);  
   
-function generatePassword(lower,upper,number,symbol,length){
-
-  //____________initilizing the vlaue of min and max length of the password____________________
-      var passwordLength=8;
-// _______________________________using the prompt function to ask for the criteria_________
-
-      choose_criteria()
-//__________________Creating the character list concerning the chosen criteria_______________
-
-    if(!(hasUpperLetter ||hasLowerLetter || hasNumbers|| hasSpecialLetters)){
-          alert("you password should atleast containe one criteria");
-          var isContinue=confirm("Do you want to continue");
-        if(isContinue){
-          choose_criteria();
-          }else{
-          return;
-          }
+  do{// this loop will continue until you choose at least one criteria
+    hasUpperLetter= confirm("Password has upper case letters included:\n     +Press OK to include it \n   OR \n     +Press cancel to exclude it. ");
+    hasLowerLetter= confirm("Password has lower case letters include:\n     +Press OK to include it \n   OR \n     +Press cancel to exclude it.");
+    hasNumbers= confirm("Password has numeric character included:\n     +Press OK to include it \n   OR \n     +Press cancel to exclude it.");
+    hasSpecialLetters= confirm("Password has special characters included:\n     +Press OK to include it \n   OR \n     +Press cancel to exclude it."); 
+  
+    if(!(hasLowerLetter ||hasUpperLetter || hasNumbers|| hasSpecialLetters)){
+      alert("you password should atleast containe one criteria");
     }
+  } while(!(hasLowerLetter ||hasUpperLetter || hasNumbers|| hasSpecialLetters));
+  
+  } //end of function choose_criteria
 
- //_______________ generating a random password______________________    
+//_______________________ Creat the password with the given criteria________________________________________
+  
+function generatePassword(){
+
+   
     var password=""; var myIteration=0;
     
-    function getRandom(my_letters){
+    function getRandom(my_letters){//____ generating a random password_____________
       var range=my_letters.length;
       var j= Math.floor(Math.random() * (range));
       return my_letters[j];
     }
-    do{
+    do{ // this loop will continue utill the password has a length of atleast passwordLength
           if(hasLowerLetter){// choose a random lower case letter
             password=password+getRandom(crtiteriaList.LOWERCASE_RE);
             myIteration++;
@@ -81,69 +88,43 @@ function generatePassword(lower,upper,number,symbol,length){
             myIteration++;          
             }
   } while(myIteration<=passwordLength)
-  // ____after generating password, to have it more secure, we shuffle it to have more random pattern____
+  
+  // ________after generating password, to have it more secure, we shuffle it to have more random Pattern____
   password=shuffle(password);
-  //  slice the password to have the actual given length____________ 
+  
+  //________slice the password to have the actual given length____________ 
   password=  password.slice(0, passwordLength);
-  console.log("\n The chosen password of length  "+passwordLength+"  is \n " );
+  console.log("\n The chosen password of length  "+passwordLength+"  is \n "+ password);
+  alert("\n The chosen password of length  "+passwordLength+"  is \n "+password)
 
-  console.log(password); 
 //_________________________Add the criteria list to the HTML body_____________________________
 
-// creatMyCriteriaList()
-
-// _______________________________using the prompt function to ask for the criteria_________
-function choose_criteria(){
-      passwordLength= +(prompt("Password length:\n     +It should be at least 8 characters and no more than 128 characters"));
-      if(!passwordLength)passwordLength=8;  
-      hasUpperLetter= confirm("Password has upper case letters included:\n     +Press OK to include it \n   OR \n     +Press cancel to exclude it. ");
-      hasLowerLetter= confirm("Password has lower case letters include:\n     +Press OK to include it \n   OR \n     +Press cancel to exclude it.");
-      hasNumbers= confirm("Password has numeric character included:\n     +Press OK to include it \n   OR \n     +Press cancel to exclude it.");
-      hasSpecialLetters= confirm("Password has special characters included:\n     +Press OK to include it \n   OR \n     +Press cancel to exclude it."); 
-  } //end of function choose_criteria
+  creatMyCriteriaList()
 
   // ______________Adding the criteria list to the HTML body
   function   creatMyCriteriaList(){
 
-
-
-
-
-
-
       criteriaContentList.style.display="block";
-      criteriaContentList.children[0].style.color="red";
-      criteriaContentList.children[1].style.color="blue"; 
-     
-      // Create ordered list items
-    //   var li = [liPasswordLength];
-    //   if(hasUpperLetter) li.push(liUpperCase);
-    //   if(hasLowerLetter) li.push(liLowerCase);
-    //   if(hasNumbers)li.push(liNumeric);
-    //   if(hasSpecialLetters) li.push(liCharaters);
-
-    //   // Add text for list items
-    //   li[0].textContent ="password length is:  "+passwordLength;
-    //   li[0].style.display="block";
-    //   var i=1;console.log(i);
-    //   if(hasUpperLetter){i++;console.log(i);  li[i].textContent = "Upper case letters are included.";} 
-    //   if(hasLowerLetter){i++;console.log(i);  li[i].textContent = "Lower case letters are included.";}
-    //   if(hasNumbers){i++;console.log(i); li[i].textContent = "Numeric are included";}
-    //   if(hasSpecialLetters){i++;console.log(i); li[i].textContent = "Special characters are included.";}
-
-    //   listEl.appendChild(li[0]);
-    //   for (var j=1;j<i;j++){
-    //   listEl.appendChild(li[j]);
-    // }
-      
-
-      // listEl.setAttribute("style", "background:#f2f2f2; padding:20px;");
 
 
-    
-
-      // Append ordered list 
-      // myCriteria.appendChild(listEl);
+      liPasswordLength.textContent="password length is:  "+passwordLength
+      liPasswordLength.style.display="block";
+      if(hasUpperLetter){
+        liUpperCase.textContent ="you passsword contain upper case letters.";
+       liUpperCase.style.display="block";
+      }
+      if(hasLowerLetter){
+        liLowerCase.textContent ="you passsword contain lower case letters.";
+        liLowerCase.style.display="block";
+      }
+      if(hasNumbers){
+        liNumeric.textContent ="you passsword contain numbers.";
+        liNumeric.style.display="block";
+      }  
+      if(hasSpecialLetters){
+        liCharaters.textContent ="you passsword contain special letters.";
+        liCharaters.style.display="block";
+      }            
 
    }// end of the function creatMyCriteriaList
 
