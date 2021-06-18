@@ -9,6 +9,10 @@
 The password can include; Lower case letters, Upper case letters, Numbers and Special characters. 
 ```
 
+```
+The password strength here based on how many chriteria you choose. It starts from "too low" for one criteria and ends with "high" for all 4 criteria.
+```
+
 ## Mock-Up
 
 The following animation shows the web application's appearance and functionality:
