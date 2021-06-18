@@ -145,7 +145,6 @@ function generatePassword(){
 //  in this section we demonstrate the strength of the password on the criteria Section
 
 const indicator=document.querySelector(".indicator");
-const input=document.querySelector("input");
 const tooweak=document.querySelector(".tooweak");
 const weak=document.querySelector(".weak");
 const medium=document.querySelector(".medium");
