@@ -10,7 +10,7 @@ body,
   /* height: 100%; */
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #ebebeb;
   color:#555555;
 
   font-weight: normal; /*! bold bolder */
@@ -22,7 +22,7 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fdf9;
+  /* background-color: #00ff00; */
 }
 
 .wrapper {
@@ -38,8 +38,7 @@ flex-direction: row;
 
 header {
   text-align: center;
-  padding: 20px;
-  padding-top: 0px;
+  padding: 10px;
   color: hsl(206, 17%, 28%);
 }
 
@@ -51,7 +50,7 @@ header {
   color: hsl(206, 17%, 28%);
   font-size: 18px;
   margin: 0 auto;
-  width: 50%;
+  min-width: 58%;
   padding: 5px 20px;
 }
 
@@ -165,7 +164,8 @@ header {
 }
 
 .mycriterialist{
-  width: 40%;
+  min-width: 25%;
+  min-height:100%;
   display:none;
   color:#fff;
   /* font-weight: 600;  */
@@ -204,7 +204,7 @@ header {
   background:url(./check.png);
   background-size: cover;
   background-position: center; 
-   
+  transform: scale(0.8);  
 }
 
 @media (max-width: 800px) {
@@ -232,12 +232,12 @@ header {
 
   }
   .card{
-    width: 85%;
+    min-width: 95%;
     transition:all 0.1s ease;
 
   }
   .mycriterialist{
-    width:85%;
+    min-width:95%;
     transition:all 0.11s ease;
 
   }
@@ -268,12 +268,12 @@ header {
 
   }
   .card{
-    width: 85%;
+    min-width: 95%;
     transition:all 0.1s ease;
 
   }
   .mycriterialist{
-    width:85%;
+    min-width:95%;
     transition:all 0.11s ease;
 
   }
@@ -300,11 +300,7 @@ header {
     transition:all 0.1s ease;
 
   }
-  .card{
-    width: 85%;
-    transition:all 0.1s ease;
-
-  }
+ 
   .mycriterialist h4, .card-header h2{
     font-size: 13px;
     transition:all 0.3s ease;
