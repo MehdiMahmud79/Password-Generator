@@ -193,17 +193,7 @@ console.log("number of choosen criteria are=  "+strengthCount)
             strong.classList.remove("active");   
             text.classList.remove("strong");                    
         }
-    
-        // showBtn.style.display="block";
-        // showBtn.onclick=function(){
-        //     if(input.type=="password"){
-        //         input.type="text";
-        //         showBtn.textContent="HIDE";
-        //     }else{
-        //         input.type="password";
-        //         showBtn.textContent="SHOW";
-        //     }
-        // }
+
         return password;
 
 }// end of function generatePassword
