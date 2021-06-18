@@ -134,25 +134,20 @@ header {
 .copyBtn {
   position: absolute;
   border: none;
-  background-color: rgb(71, 71, 71);
   border-radius:4px;
-  color: hsl(0, 0%, 100%);
   display: none;
   font-size: 18px;
   line-height: 22px;
-  margin: 16px 16px 16px 20px;
-  padding: 8px 10px;
-  text-align: center;
+  margin: 16px ;
   cursor: pointer;
   right:-20px;
   top:-60px;
   background:url(./clipboard.png) no-repeat;
-  background-size:contain;
-  /* background-position: center;  */
-  transform: scale(1.1);
-  width:30px;
-  height:30px;
-  
+  background-size:cover;
+  transform: scale(0.7);
+  width:35px;
+  height:45px;
+  overflow: hidden;
 }
 
 
