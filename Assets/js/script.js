@@ -39,8 +39,6 @@ function writePassword() {
 function generatePassword(lower,upper,number,symbol,length){
 
   //____________initilizing the vlaue of min and max length of the password____________________
-      var minLength=8;
-      var maxLength=128;
       var passwordLength=8;
 // _______________________________using the prompt function to ask for the criteria_________
 
@@ -56,10 +54,6 @@ function generatePassword(lower,upper,number,symbol,length){
           return;
           }
     }
-
-//____________________choose a random password length with the given minimum maximum lenght____________        
-        passwordLength = Math.floor(Math.random() * (maxLength - minLength)) + minLength;
-        console.log("For minimum length of  "+minLength+"   and maximum length of   "+maxLength+ "  the chosen password length is  " +passwordLength);
 
  //_______________ generating a random password______________________    
     var password=""; var myIteration=0;
@@ -100,12 +94,8 @@ function generatePassword(lower,upper,number,symbol,length){
 
 // _______________________________using the prompt function to ask for the criteria_________
 function choose_criteria(){
-      alert("you password length should be between 8 and 128 letters.");
-
-      minLength= +(prompt("Pas sword minimum length:\n     +It should be greater or equal to 8 and less than 128. \n     +Cancel will set the minimum length to 8. "));
-      if(minLength===0)minLength=8;  
-      maxLength= +(prompt("Password maximum length :\n     +It should be less or equal to 128 and greater than " +minLength +". \n     +Cancel will set the maximum length to 128." ));
-      if(maxLength===0)maxLength=128;
+      passwordLength= +(prompt("Password length:\n     +It should be at least 8 characters and no more than 128 characters"));
+      if(!passwordLength)passwordLength=8;  
       hasUpperLetter= confirm("Password has upper case letters included:\n     +Press OK to include it \n   OR \n     +Press cancel to exclude it. ");
       hasLowerLetter= confirm("Password has lower case letters include:\n     +Press OK to include it \n   OR \n     +Press cancel to exclude it.");
       hasNumbers= confirm("Password has numeric character included:\n     +Press OK to include it \n   OR \n     +Press cancel to exclude it.");
