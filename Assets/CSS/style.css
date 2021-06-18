@@ -218,16 +218,9 @@ header {
     align-items:center ;
     justify-content: space-between;
     margin:10px 0;
-    /* background:#27a360; */
-    /* display:none; */
+
   }  
-  .mycriterialist .text{
-    height:10px;
-    text-align: center;
-    margin:10px 0;
-    /* background:#27a360; */
-    /* display:none; */
-  }  
+ 
 
   .mycriterialist .indicator span{
     position: relative;
@@ -263,12 +256,13 @@ header {
   .mycriterialist .indicator span.active.strong::before{
   background:green;
   }  
-  mycriterialist .text{
+  .mycriterialist .text{
     font-size: 20px;
     font-weight: 500;
     margin-bottom: -10px;
     display:none;
   }
+ 
   .mycriterialist .text .tooweak{
     color:red;
   }
