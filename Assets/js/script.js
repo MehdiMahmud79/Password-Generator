@@ -1,5 +1,6 @@
 // DOM elements
 var generateBtn = document.querySelector("#generate");
+var copyBtn = document.querySelector(".copyBtn");
 var passwordText = document.querySelector("#password");
 var criteriaContentList = document.querySelector(".mycriterialist");
 var liPasswordLength = document.getElementById("password-length");
@@ -21,7 +22,7 @@ var hasNumbers=false;
 var hasSpecialLetters=false;
 // Add event listener to generate button
 
- generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
 // Write password to the #password input
 function writePassword() {
   passwordText.value = "I will generate your secure password";
@@ -32,7 +33,7 @@ function writePassword() {
   liNumeric.style.display="none";
   liCharaters.style.display="none";
     choose_criteria()  //___ Password criteria____
-
+    copyBtn.setAttribute("style", "display:inline-block;")
     var password = generatePassword();
 
 

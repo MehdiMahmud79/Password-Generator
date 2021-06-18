@@ -66,6 +66,7 @@ header {
   font-size:22px;
 }
 .card-body {
+  position: relative;
   min-height: 100px;
 }
 
@@ -102,11 +103,31 @@ header {
   text-align: center;
   cursor: pointer;
 }
-
-button[disabled] {
-  cursor: default;
-  background: #c0c7cf;
+.copyBtn {
+  position: absolute;
+  border: none;
+  background-color: rgb(71, 71, 71);
+  border-radius:4px;
+  color: hsl(0, 0%, 100%);
+  display: none;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 16px 16px 16px 20px;
+  padding: 8px 10px;
+  text-align: center;
+  cursor: pointer;
+  right:-20px;
+  top:-60px;
+  background:url(./clipboard.png) no-repeat;
+  background-size:contain;
+  /* background-position: center;  */
+  transform: scale(1.1);
+  width:30px;
+  height:30px;
+  
 }
+
+
 .btn:hover{
   background:lightgray;color:red;
 }
@@ -127,7 +148,7 @@ button[disabled] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  display: block;
+  display: inline-block;
   width: 100%;
   padding-top: 15px;
   padding-left: 15px;
@@ -164,8 +185,6 @@ button[disabled] {
   padding:8px;
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
-
-  
 }
 
 .mycriterialist li{
