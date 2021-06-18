@@ -4,27 +4,26 @@
   box-sizing: border-box;
 }
 
+/* styling the body,HTML and wrapper section */
 html,
 body,
 .wrapper {
-  /* height: 100%; */
+  min-height: 300px;
   margin: 0;
   padding: 0;
   background-color: #ebebeb;
   color:#555555;
 
-  font-weight: normal; /*! bold bolder */
+  font-weight: normal; 
   font-size: 16px;
   font-family: serif,Arial, Helvetica, sans-serif;
-   /* simply this replace the above*/
-  font: normal 16px Arial, Helvetica;
-}
 
+}
+/* choosing sans-serif font for the body section */
 body {
   font-family: sans-serif;
-  /* background-color: #00ff00; */
 }
-
+/* styling the wrapper */
 .wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -35,12 +34,14 @@ body {
 flex-direction: row;
 
 }
-
+/* styling the header section */
 header {
   text-align: center;
   padding: 10px;
   color: hsl(206, 17%, 28%);
 }
+
+/* styling the password container and its title, start*/
 
 .card {
   background-color: hsl(0, 0%, 100%);
@@ -87,6 +88,34 @@ header {
   clear: both;
 }
 
+.card-body textarea:focus{
+  border-color: #27a360 ;  
+  box-shadow:  0px 0px 10px #888888;
+}
+
+#password { /* styling the password section*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 100%;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 85px;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px dashed #c0c7cf;
+  border-radius: 6px;
+  resize: none;
+  overflow: hidden;
+}
+
+/* styling the password container and its title, end*/
+
+/* styling the button  start*/
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -135,37 +164,13 @@ header {
 
 }
 
-.float-right {
-  float: right;
-}
+/* styling the button  end*/
 
-.card-body textarea:focus{
-  border-color: #27a360 ;  
-  box-shadow:  0px 0px 10px #888888;
-}
-#password {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  width: 100%;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 85px;
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
-  border-radius: 6px;
-  resize: none;
-  overflow: hidden;
-}
+/* styling the criteria output section start */
 
 .mycriterialist{
   min-width: 25%;
-  min-height:100%;
+  height:100%;
   display:none;
   color:#fff;
   /* font-weight: 600;  */
@@ -174,7 +179,7 @@ header {
   border-radius: 10px;
   margin: 10px auto;
   padding-left: 25px;
-  float:left;
+  float:right;
   box-shadow:  -10px 10px 10px #888888;
 
 }
@@ -206,7 +211,95 @@ header {
   background-position: center; 
   transform: scale(0.8);  
 }
+  /*  Adding password strength indicator style */
 
+  .mycriterialist .indicator{
+    height:10px;
+    display:flex;
+    align-items:center ;
+    justify-content: space-between;
+    margin:10px 0;
+    /* background:#27a360; */
+    /* display:none; */
+  }  
+  .mycriterialist .text{
+    height:10px;
+    text-align: center;
+    margin:10px 0;
+    /* background:#27a360; */
+    /* display:none; */
+  }  
+
+  .mycriterialist .indicator span{
+    position: relative;
+    width:100%;
+  height:100%;
+  background:lightgrey;
+  border-radius: 5px;
+  border:2px solid #ffffff;
+  } 
+  .mycriterialist .indicator span.medium, .mycriterialist .indicator span.weak{
+    margin:0 3px;
+  }
+  .mycriterialist .indicator span::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  /* background:red; */
+  border-radius: 5px;
+
+  }
+  .mycriterialist .indicator span.active.tooweak::before{
+  background:#ff4757;
+  }
+  .mycriterialist .indicator span.active.weak::before{
+  background:orange;
+  }  
+  .mycriterialist .indicator span.active.medium::before{
+  background:rgb(0, 255, 64);
+  }       
+  .mycriterialist .indicator span.active.strong::before{
+  background:green;
+  }  
+  mycriterialist .text{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: -10px;
+    display:none;
+  }
+  .mycriterialist .text .tooweak{
+    color:red;
+  }
+  .mycriterialist .text .weak{
+    color:orange;
+  }
+  .mycriterialist .text .medium{
+    color:rgb(0, 110, 255);
+  }
+  .mycriterialist .text .strong{
+    color:green;
+  }
+  /*  end of strength indicator */
+/* styling the criteria output section start */
+
+  /* Footer setcion style */
+  footer {
+    position: relative;
+    margin: 50px auto;
+    height: 60px;
+    min-width: 100%;
+    /* line-height: 60px; */
+    background-color:#363636;    
+    text-align: center;
+    color:#fff;
+    border-radius:50px;
+
+  }
+
+  /*  screen control section for being responsive */
 @media (max-width: 800px) {
   .btn {
     line-height: 0.8rem;

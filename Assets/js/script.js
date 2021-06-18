@@ -142,6 +142,69 @@ function generatePassword(){
       return  a;
       }
 
-      return password;
+//  in this section we demonstrate the strength of the password on the criteria Section
+
+const indicator=document.querySelector(".indicator");
+const input=document.querySelector("input");
+const tooweak=document.querySelector(".tooweak");
+const weak=document.querySelector(".weak");
+const medium=document.querySelector(".medium");
+const strong=document.querySelector(".strong");
+const text=document.querySelector(".text");
+// strengthCount indicates the number of choosen criteria
+var strengthCount=0; 
+strengthCount=hasUpperLetter+ hasLowerLetter+hasNumbers+hasSpecialLetters;
+console.log("number of choosen criteria are=  "+strengthCount)
+ 
+        indicator.style.display="block";                
+        indicator.style.display="flex";
+        if(strengthCount==1){
+            tooweak.classList.add("active");
+            text.style.display="block";
+            text.textContent="your password is too weak";
+            text.classList.add("tooweak");
+        }
+        if(strengthCount==2){
+            weak.classList.add("active");
+            text.textContent="your password is weak";
+            text.classList.add("weak");
+        }else{
+            weak.classList.remove("active");   
+            text.classList.remove("weak");
+        }
+
+        if(strengthCount==3){
+            medium.classList.add("active");
+            text.textContent="your password is medium";
+            text.classList.add("medium");
+            text.classList.remove("weak")
+        }else{
+            medium.classList.remove("active");   
+            text.classList.remove("medium");
+
+        } 
+        if(strengthCount==4){
+            strong.classList.add("active");
+            text.textContent="your password is strong";
+            text.classList.add("strong");
+            text.classList.remove("medium");
+
+        }else{
+            strong.classList.remove("active");   
+            text.classList.remove("strong");                    
+        }
+    
+        // showBtn.style.display="block";
+        // showBtn.onclick=function(){
+        //     if(input.type=="password"){
+        //         input.type="text";
+        //         showBtn.textContent="HIDE";
+        //     }else{
+        //         input.type="password";
+        //         showBtn.textContent="SHOW";
+        //     }
+        // }
+        return password;
+
 }// end of function generatePassword
 

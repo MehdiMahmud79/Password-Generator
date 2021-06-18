@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="./Assets/CSS/style.css" />
   </head>
   <body>
+    <!-- header section -->
       <header>
         <h1>Password Generator</h1>
       </header>
     <div class="wrapper">
-
+      <!-- a section to show the password -->
       <div class="card">
         <div class="card-header">
           <h2>Generate a Password</h2>
@@ -29,11 +30,12 @@
         </div>
         <div class="card-footer">
           <button id="generate" class="btn" >Generate Password</button>
+
         </div>
       </div>
-      
+      <!-- this section will show the choosen criteria on the HTML file -->
       <div class="mycriterialist">
-        <h4>This password contains the following criteria:</h2>
+        <h5>This password contains the following criteria:</h5>
           <ul >
             <li id="password-length"></li>
             <li id="Lower-Case"></li>
@@ -41,19 +43,39 @@
             <li id="Charaters"></li>
             <li id="Numeric"></li>
           </ul>
+          <!-- this will indicate the strength of the password -->
+          <div class="indicator"> 
+            <span class="tooweak"></span>
+            <span class="weak"></span>
+            <span class="medium"></span>
+            <span class="strong"></span>
+
+        </div>
+        <div class="text"></div>
+
       </div>
+           <!-- Footer Section -->
+           <footer>
+            <h4>
+            Copyright ©2021 All rights reserved | It is made with
+            <span role="img" aria-label="heart">❤️</span>
+            by Mehdi
+            </h4>
+        </footer>
 
-
+    </div>
+<!--  a script to copy the password to the clipboard -->
 <script>
 function myFunction() {
   var copyText = document.getElementById("password");
   copyText.select();
   copyText.setSelectionRange(0, 99999)
   document.execCommand("copy");
-  alert("Copied the text: " + copyText.value);
+  alert("password copied to the clipboard: \n" + copyText.value);
 }
+
 </script>
-    </div>
+    <!--external Js script  -->
     <script src="./Assets/js/script.js"></script>
   </body>
 </html>
