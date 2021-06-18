@@ -168,6 +168,9 @@ console.log("number of choosen criteria are=  "+strengthCount)
             weak.classList.add("active");
             text.textContent="your password is weak";
             text.classList.add("weak");
+            text.classList.add("tooweak");
+            // text.classList.remove("tooweak")
+
         }else{
             weak.classList.remove("active");   
             text.classList.remove("weak");
@@ -177,7 +180,9 @@ console.log("number of choosen criteria are=  "+strengthCount)
             medium.classList.add("active");
             text.textContent="your password is medium";
             text.classList.add("medium");
-            text.classList.remove("weak")
+            text.classList.add("weak");
+            text.classList.add("tooweak");
+            // text.classList.remove("weak")
         }else{
             medium.classList.remove("active");   
             text.classList.remove("medium");
@@ -187,7 +192,10 @@ console.log("number of choosen criteria are=  "+strengthCount)
             strong.classList.add("active");
             text.textContent="your password is strong";
             text.classList.add("strong");
-            text.classList.remove("medium");
+            text.classList.add("weak");
+            text.classList.add("tooweak");
+            text.classList.add("medium");
+            // text.classList.remove("medium");
 
         }else{
             strong.classList.remove("active");   
