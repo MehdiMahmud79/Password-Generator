@@ -2,4 +2,3 @@
 *.js linguist-detectable=true
 *.html linguist-detectable=true
 *.css linguist-detectable=true
-assets/css/tailwind.css linguist-detectable=false
