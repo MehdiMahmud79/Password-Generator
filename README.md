@@ -17,7 +17,7 @@ The password strength here based on how many chriteria you choose. It starts fro
 
 The following animation shows the web application's appearance and functionality:
 
-![The Password Generator application displays a red button to "Generate Password".](./screen.gif)
+![The Password Generator application displays a red button to "Generate Password".](./assets/screen.gif)
 
 ## Websites
 * Github: https://github.com/MehdiMahmud79/Password-Generator
